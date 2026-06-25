@@ -1,0 +1,71 @@
+/*
+ * A6.c
+ * 
+ * Copyright 2026 a.nikolaev <a.nikolaev@TAG-5736>
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * 
+ * 
+ */
+
+
+#include <stdio.h>
+
+#define SIZE 5
+
+void Input(int arr[][SIZE])
+{
+    int i,j;
+    for(i=0;i<SIZE;i++)
+    {
+		for(j=0;j<SIZE;j++)
+		{
+			scanf("%d",&arr[i][j]);
+		}
+	}
+}
+
+int Count(int arr[][SIZE])
+{
+    int i,j;
+    int sum = 0;
+    int avr = 0; 
+    int count = 0;
+    for (i = 0, j = 0; i < SIZE; i++,j++)
+    {
+		sum+=arr[i][j];
+	}
+	avr=sum/SIZE;
+	for(i=0;i<SIZE;i++)
+    {
+		for(j=0;j<SIZE;j++)
+		{
+			if (arr[i][j]>avr&& arr[i][j] > 0)
+			count++;
+		}
+	}
+return	count;
+}
+
+int main(void)
+{
+	int arr [5][5]={0};
+	Input(arr);
+	printf ("%d\n",Count(arr));
+	return 0;
+}
+
+
